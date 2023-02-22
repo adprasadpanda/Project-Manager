@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "zarnf31/R4HsmEX4+PixT6tJphREXtnOUhjpqChPalP1DxkWZpXAHyFx730SrJtxQZ7ZGlRlxIW64NXAn6pvDw==",
+  "success": true,
+  "projectFilePath": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
+  "expectedPackageFiles": [
+    "/home/adprasadpanda/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/swashbuckle.aspnetcore/6.2.3/swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/swashbuckle.aspnetcore.swagger/6.2.3/swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.2.3/swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.2.3/swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
