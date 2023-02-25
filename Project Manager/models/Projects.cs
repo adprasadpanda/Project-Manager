@@ -10,7 +10,9 @@ namespace Project_Manager.models
         public string projectDescription {get; set;}
         
         [Required]
-        public string creator {get; set;}
+        public int creator {get; set;}
+
+        public List<Issues> listOfIssues{get; set;}
 
 
     }
