@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Project_Manager.Migrations
 {
-    public partial class initial : Migration
+    public partial class inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,11 +16,10 @@ namespace Project_Manager.Migrations
                 name: "Projects",
                 columns: table => new
                 {
-                    projectId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    projectId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     projectDescription = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    creator = table.Column<int>(type: "int", nullable: false)
+                    creator = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci")
                 },
                 constraints: table =>
                 {
@@ -32,9 +31,14 @@ namespace Project_Manager.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    userId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    userId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     userName = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    role = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    emailId = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    password = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -47,8 +51,7 @@ namespace Project_Manager.Migrations
                 name: "Issues",
                 columns: table => new
                 {
-                    issueId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    issueId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     status = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     type = table.Column<string>(type: "longtext", nullable: false)
@@ -57,10 +60,12 @@ namespace Project_Manager.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    reporter = table.Column<int>(type: "int", nullable: false),
-                    assignee = table.Column<int>(type: "int", nullable: false),
-                    projectId = table.Column<int>(type: "int", nullable: false),
-                    ProjectsprojectId = table.Column<int>(type: "int", nullable: true)
+                    reporter = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    assignee = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    projectId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ProjectsprojectId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
+                    UsersuserId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
+                    UsersuserId1 = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci")
                 },
                 constraints: table =>
                 {
@@ -70,6 +75,16 @@ namespace Project_Manager.Migrations
                         column: x => x.ProjectsprojectId,
                         principalTable: "Projects",
                         principalColumn: "projectId");
+                    table.ForeignKey(
+                        name: "FK_Issues_Users_UsersuserId",
+                        column: x => x.UsersuserId,
+                        principalTable: "Users",
+                        principalColumn: "userId");
+                    table.ForeignKey(
+                        name: "FK_Issues_Users_UsersuserId1",
+                        column: x => x.UsersuserId1,
+                        principalTable: "Users",
+                        principalColumn: "userId");
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -77,6 +92,16 @@ namespace Project_Manager.Migrations
                 name: "IX_Issues_ProjectsprojectId",
                 table: "Issues",
                 column: "ProjectsprojectId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Issues_UsersuserId",
+                table: "Issues",
+                column: "UsersuserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Issues_UsersuserId1",
+                table: "Issues",
+                column: "UsersuserId1");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -85,10 +110,10 @@ namespace Project_Manager.Migrations
                 name: "Issues");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Projects");
+                name: "Users");
         }
     }
 }

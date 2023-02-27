@@ -47,3 +47,5 @@
 /home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.dll
 /home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/bin/Debug/net6.0/Pomelo.EntityFrameworkCore.MySql.Design.dll
 /home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/bin/Debug/net6.0/System.IdentityModel.Tokens.Jwt.dll
+/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/bin/Debug/net6.0/AutoMapper.dll
+/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/bin/Debug/net6.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll

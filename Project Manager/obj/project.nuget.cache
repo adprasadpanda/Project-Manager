@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RDlzkn56DX+TfQm7OQaJaIsa9qMpZ31bSn/ZtCDHz4REtWS+ZaRoSKVKlbBCeUzUuZ/fcYdxdLXVTHe4CI1LFg==",
+  "dgSpecHash": "kfTsS3tPhM8q6rSmbw9snwD1mHnDIfz+U8hCeX7OYZmwzjpwZ7CEF8y8CEQJgz/GAdw15/h8dAs9bKpfaxLjvA==",
   "success": true,
   "projectFilePath": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
   "expectedPackageFiles": [
+    "/home/adprasadpanda/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/adprasadpanda/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "/home/adprasadpanda/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/adprasadpanda/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/6.0.0/microsoft.aspnetcore.authentication.jwtbearer.6.0.0.nupkg.sha512",
     "/home/adprasadpanda/.nuget/packages/microsoft.aspnetcore.jsonpatch/6.0.0/microsoft.aspnetcore.jsonpatch.6.0.0.nupkg.sha512",

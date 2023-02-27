@@ -1,13 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Project_Manager.models 
+namespace Project_Manager.models.dtos
 {
-    public class Users{
-        
-        [Key]
-        public Guid userId{get; set;}
-
+    public class AddUsersRequest 
+    {
         [Required]
         public string userName{get; set;}
 
@@ -19,13 +16,11 @@ namespace Project_Manager.models
         [Required]
         public string password{get; set;}
 
+        
         public List<Issues> reporterOfIssues{get; set;}
-    
+        
         public List<Issues> assignedIssues{get; set;}
 
-
-
     }
-
-
+    
 }

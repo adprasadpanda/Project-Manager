@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Project_Manager.dbcontext;
+using Project_Manager.repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration["ConnectionString:ProjectsDB"];
 builder.Services.AddDbContext<ProjectsContext>(opts =>
                                                  opts.UseMySql(connectionString,ServerVersion.AutoDetect(connectionString)));
+
+builder.Services.AddAutoMapper(typeof(Program).Assembly);                                                 
+
+builder.Services.AddScoped<IProjectsRepository, ProjectsRepository>();
+builder.Services.AddScoped<IUsersRepository, UsersRepository>();
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

@@ -5,7 +5,7 @@ namespace Project_Manager.models
     public class Issues {
 
         [Key]
-        public int issueId {get; set;}
+        public Guid issueId {get; set;}
 
         [Required]
         public string status{get; set;}
@@ -20,13 +20,13 @@ namespace Project_Manager.models
         public string description {get; set;}
 
         [Required]
-        public int reporter{get; set;}
+        public Guid reporter{get; set;}
 
         [Required]
-        public int assignee {get; set;}
+        public Guid assignee{get; set;}
 
-        [ForeignKeyAttribute("projectId")]
-        public int projectId {get; set;}
+        [ForeignKey("projectId")]
+        public Guid projectId {get; set;}
     }
     
 }

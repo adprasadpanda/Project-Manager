@@ -21,25 +21,31 @@ namespace Project_Manager.Migrations
 
             modelBuilder.Entity("Project_Manager.models.Issues", b =>
                 {
-                    b.Property<int>("issueId")
+                    b.Property<Guid>("issueId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
-                    b.Property<int?>("ProjectsprojectId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("ProjectsprojectId")
+                        .HasColumnType("char(36)");
 
-                    b.Property<int>("assignee")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("UsersuserId")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("UsersuserId1")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("assignee")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("projectId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("projectId")
+                        .HasColumnType("char(36)");
 
-                    b.Property<int>("reporter")
-                        .HasColumnType("int");
+                    b.Property<Guid>("reporter")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("status")
                         .IsRequired()
@@ -57,17 +63,21 @@ namespace Project_Manager.Migrations
 
                     b.HasIndex("ProjectsprojectId");
 
+                    b.HasIndex("UsersuserId");
+
+                    b.HasIndex("UsersuserId1");
+
                     b.ToTable("Issues");
                 });
 
             modelBuilder.Entity("Project_Manager.models.Projects", b =>
                 {
-                    b.Property<int>("projectId")
+                    b.Property<Guid>("projectId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
 
-                    b.Property<int>("creator")
-                        .HasColumnType("int");
+                    b.Property<Guid>("creator")
+                        .HasColumnType("char(36)");
 
                     b.Property<string>("projectDescription")
                         .IsRequired()
@@ -80,9 +90,21 @@ namespace Project_Manager.Migrations
 
             modelBuilder.Entity("Project_Manager.models.Users", b =>
                 {
-                    b.Property<int>("userId")
+                    b.Property<Guid>("userId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("emailId")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("role")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("userName")
                         .IsRequired()
@@ -98,11 +120,26 @@ namespace Project_Manager.Migrations
                     b.HasOne("Project_Manager.models.Projects", null)
                         .WithMany("listOfIssues")
                         .HasForeignKey("ProjectsprojectId");
+
+                    b.HasOne("Project_Manager.models.Users", null)
+                        .WithMany("assignedIssues")
+                        .HasForeignKey("UsersuserId");
+
+                    b.HasOne("Project_Manager.models.Users", null)
+                        .WithMany("reporterOfIssues")
+                        .HasForeignKey("UsersuserId1");
                 });
 
             modelBuilder.Entity("Project_Manager.models.Projects", b =>
                 {
                     b.Navigation("listOfIssues");
+                });
+
+            modelBuilder.Entity("Project_Manager.models.Users", b =>
+                {
+                    b.Navigation("assignedIssues");
+
+                    b.Navigation("reporterOfIssues");
                 });
 #pragma warning restore 612, 618
         }

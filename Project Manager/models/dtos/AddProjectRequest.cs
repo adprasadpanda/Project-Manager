@@ -1,12 +1,10 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
-namespace Project_Manager.models
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Project_Manager.models.dtos
 {
-    public class Projects {
-
-        [Key]
-        public Guid projectId {get; set;}
-
+    public class AddProjectRequest 
+    {
         [Required]
         public string projectDescription {get; set;}
         
@@ -14,7 +12,6 @@ namespace Project_Manager.models
         public Guid creator {get; set;}
 
         public List<Issues> listOfIssues{get; set;}
-
     }
     
 }
