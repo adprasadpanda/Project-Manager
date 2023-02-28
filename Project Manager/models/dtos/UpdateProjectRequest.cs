@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Project_Manager.models.dtos
 {
-    public class AddProjectRequest 
+    public class UpdateProjectRequest 
     {
         [Required]
         public string? projectDescription {get; set;}

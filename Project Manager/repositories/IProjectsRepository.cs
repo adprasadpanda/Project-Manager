@@ -9,5 +9,9 @@ namespace Project_Manager.repositories
         Task<Projects> GetProject(Guid id);
 
         Task<Projects> AddProjects(Projects projects);
+
+        Task<Projects> DeleteProject(Guid id);
+
+        Task<Projects> UpdateProject(Guid id, Projects projects);
     }
 }

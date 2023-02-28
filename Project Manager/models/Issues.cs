@@ -8,21 +8,21 @@ namespace Project_Manager.models
         public Guid issueId {get; set;}
 
         [Required]
-        public string status{get; set;}
+        public string? status{get; set;}
 
         [Required]
-        public string type{get; set;}
+        public string? type{get; set;}
 
         [Required]
-        public string title {get; set;}
+        public string? title {get; set;}
         
         [Required]
-        public string description {get; set;}
+        public string? description {get; set;}
 
-        [Required]
+        
         public Guid reporter{get; set;}
 
-        [Required]
+        
         public Guid assignee{get; set;}
 
         [ForeignKey("projectId")]

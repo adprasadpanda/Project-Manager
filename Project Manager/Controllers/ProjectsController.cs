@@ -80,18 +80,42 @@ namespace Project_Manager.Controllers
             return Ok(projectsDTO);
 
         }
+        
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> DeleteProject(Guid projectId) {
+            var project = await projectsRepository.DeleteProject(projectId);
 
-        [HttpPost]
-        public async Task<ActionResult<Projects>> UpdateProject(models.dtos.AddProjectRequest addProjectRequest)
+            if(project == null){
+                return NotFound();
+            }
+
+            var projectDTO = new models.dtos.Projects(){
+                projectId = project.projectId,
+                projectDescription = project.projectDescription,
+                creator = project.creator,
+                listOfIssues = project.listOfIssues
+            };
+
+            return Ok(project);
+        }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<ActionResult<Projects>> UpdateProject([FromBody]models.dtos.UpdateProjectRequest updateProjectRequest, [FromRoute]Guid projectId)
         {
-            var newProject = new Projects()
+            var newProject = new models.Projects()
             {
-                projectDescription = addProjectRequest.projectDescription,
-                creator = addProjectRequest.creator,
+                projectDescription = updateProjectRequest.projectDescription,
+                creator = updateProjectRequest.creator
 
             };
 
-            newProject = await projectsRepository.AddProjects(newProject);
+            newProject = await projectsRepository.UpdateProject(projectId, newProject);
+
+            if(newProject == null){
+                return NotFound();
+            }
 
             var projectsDTO = new models.dtos.Projects() 
             {
@@ -100,8 +124,6 @@ namespace Project_Manager.Controllers
                 creator = newProject.creator,
                 listOfIssues = newProject.listOfIssues
             };
-
-            // return CreatedAtAction(nameof(GetProject), new {projectId = newProject.projectId}, projectsDTO);
 
             return Ok(projectsDTO);
 

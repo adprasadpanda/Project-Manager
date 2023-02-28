@@ -8,12 +8,12 @@ namespace Project_Manager.models
         public Guid projectId {get; set;}
 
         [Required]
-        public string projectDescription {get; set;}
+        public string? projectDescription {get; set;}
         
         [Required]
-        public Guid creator {get; set;}
+        public Guid? creator {get; set;}
 
-        public List<Issues> listOfIssues{get; set;}
+        public List<Issues>? listOfIssues{get; set;}
 
     }
     

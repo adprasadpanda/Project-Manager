@@ -90,6 +90,70 @@ namespace Project_Manager.Controllers
 
         }
 
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public async Task<IActionResult> DeleteUser(Guid userId) {
+            var user = await usersRepository.DeleteUser(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var userDTO = new models.dtos.Users(){
+                userId = user.userId,
+                userName = user.userName,
+                role= user.role,
+                emailId= user.emailId,
+                password= user.password,
+                reporterOfIssues= user.reporterOfIssues,
+                assignedIssues = user.assignedIssues
+            };
+
+            return Ok(userDTO);
+        
+        }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public async Task<ActionResult<Users>> UpdateUser([FromBody]models.dtos.AddUsersRequest addUsersRequest, [FromRoute]Guid userId)
+        {
+   
+            var newUser = new Users()
+            {
+                userName = addUsersRequest.userName,
+                role= addUsersRequest.role,
+                emailId= addUsersRequest.emailId,
+                password= addUsersRequest.password,
+                reporterOfIssues= addUsersRequest.reporterOfIssues,
+                assignedIssues = addUsersRequest.assignedIssues
+
+
+            };
+
+            newUser = await usersRepository.UpdateUsers(userId, newUser);
+
+            if(newUser == null){
+                return NotFound();
+            }
+
+            var usersDTO = new models.dtos.Users() 
+            {
+                userId = newUser.userId,
+                userName = newUser.userName,
+                role= newUser.role,
+                emailId= newUser.emailId,
+                password= newUser.password,
+                reporterOfIssues= newUser.reporterOfIssues,
+                assignedIssues = newUser.assignedIssues
+
+            };
+
+            return Ok(usersDTO);
+            
+
+        }
+
 
     }
 

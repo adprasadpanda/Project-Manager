@@ -10,6 +10,10 @@ namespace Project_Manager.repositories
 
         Task<Users> AddUser(Users users);
 
+        Task<Users> DeleteUser(Guid id);
+
+        Task<Users> UpdateUsers(Guid id, Users users);
+
 
     }
 
