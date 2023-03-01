@@ -3074,11 +3074,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
+      "projectUniqueName": "/home/adprasadpanda/Desktop/DotNet/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
       "projectName": "Project Manager",
-      "projectPath": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
+      "projectPath": "/home/adprasadpanda/Desktop/DotNet/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
       "packagesPath": "/home/adprasadpanda/.nuget/packages/",
-      "outputPath": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/obj/",
+      "outputPath": "/home/adprasadpanda/Desktop/DotNet/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/adprasadpanda/.nuget/NuGet/NuGet.Config"

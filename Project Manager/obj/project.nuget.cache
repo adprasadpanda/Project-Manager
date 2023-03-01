@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kfTsS3tPhM8q6rSmbw9snwD1mHnDIfz+U8hCeX7OYZmwzjpwZ7CEF8y8CEQJgz/GAdw15/h8dAs9bKpfaxLjvA==",
+  "dgSpecHash": "pPUC4GTYL7XEeUuDZ6K9wJ2WPgo/f07HbG62WkPNkZiYiZlVYX41aFl9TyW37u53gYq68Zr53fW27cpKwf3oDw==",
   "success": true,
-  "projectFilePath": "/home/adprasadpanda/Desktop/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
+  "projectFilePath": "/home/adprasadpanda/Desktop/DotNet/HU_dotnet/dotnet_assignment/Project-Manager/Project Manager/Project Manager.csproj",
   "expectedPackageFiles": [
     "/home/adprasadpanda/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/home/adprasadpanda/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.0/automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
